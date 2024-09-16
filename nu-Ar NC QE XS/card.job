@@ -1,0 +1,39 @@
+&input
+  eventtype             = 5                   ! Neutrino input
+
+  numEnsembles          = 2000                ! For heavier nuclei should be lower; decrease it if there are problems with memory
+  numTimeSteps          = 0                   ! Set this to 0 for inclusive cross sections
+
+  num_runs_SameEnergy   = 1                   ! Increase these if you want to increase statistics (= number of generated events)
+  num_Energies          = 1                   ! For nuXsectionMode=6 or 16 keep this 1
+
+  path_To_Input         = '~/GiBUU/buuinput'
+  version               = 2023
+/
+
+&neutrino_induced
+  process_ID            = 3                   ! NC interaction
+  flavor_ID             = 2                   ! Muon
+
+  nuXsectionMode        = 6                   ! dSigmaMC
+
+  includeQE             = .true.
+  includeDELTA          = .false.
+  includeRES            = .false.
+  includeDIS            = .false.
+  include1pi            = .false.
+  include2pi            = .false.
+  include2p2hQE         = .false.
+  
+  printAbsorptionXS     = .true.
+  printInclHist         = .true.
+/
+
+&nl_SigmaMC
+  enu                   =  1                  ! Energy of the initial neutrino
+/
+
+&target
+  Z                     = 18
+  A                     = 40
+/
